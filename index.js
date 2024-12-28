@@ -1,4 +1,9 @@
-const puppeteer = require("puppeteer"); // Use puppeteer instead of puppeteer-core
+const puppeteer = require("puppeteer");
+
+process.env.PUPPETEER_CACHE_DIR = "/opt/render/.cache/puppeteer";
+
+
+// Use puppeteer instead of puppeteer-core
 const cheerio = require("cheerio");
 const fetch = require("node-fetch");
 require("dotenv").config();
@@ -44,6 +49,9 @@ async function automateLogin() {
     process.env.PUPPETEER_CACHE_DIR = "/opt/render/.cache/puppeteer";
 
     // Your existing automation logic here...
+    console.log("Puppeteer Cache Directory:", process.env.PUPPETEER_CACHE_DIR);
+    console.log("Executable Path:", puppeteer.executablePath());
+
 
     const browser = await puppeteer.launch({
       headless: true, // Use headless mode
