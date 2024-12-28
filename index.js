@@ -38,6 +38,13 @@ async function postToTelegram(slotInfo) {
 // Main function to automate login and scraping
 async function automateLogin() {
   try {
+    // const puppeteer = require("puppeteer");
+
+    // Explicitly set Puppeteer cache path
+    process.env.PUPPETEER_CACHE_DIR = "/opt/render/.cache/puppeteer";
+
+    // Your existing automation logic here...
+
     const browser = await puppeteer.launch({
       headless: true, // Use headless mode
       args: ["--no-sandbox", "--disable-setuid-sandbox"], // Additional args for environments like Render
